@@ -1,0 +1,26 @@
+import pandas as pd
+
+# Create a DataFrame
+data = {
+    'Name': ['Kane', 'Saka', 'Immobile', 'Insigne'],
+    'Age': [27, 19, 31, 30],
+    'Club': ['Tottenham', 'Arsenal', None, None]
+}
+
+df = pd.DataFrame(data)
+
+print("Original DataFrame:")
+print(df)
+
+# 1. Filling NaN with string
+df['Club'] = df['Club'].fillna('No Data Found')
+print("\nAfter filling NaN:")
+print(df)
+
+# 2. Sorting based on Age
+print("\nSorted by Age:")
+print(df.sort_values('Age'))
+
+# 3. Groupby
+print("\nGroup by Club:")
+print(df.groupby('Club')['Age'].sum())
